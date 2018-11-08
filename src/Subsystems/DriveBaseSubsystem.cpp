@@ -16,11 +16,17 @@ DriveBaseSubsystem::DriveBaseSubsystem() : Subsystem("DriveBaseSubsystem"){
 
 void DriveBaseSubsystem::drivePercentage(double speed, double rotation){
 	std::array<double, 2> speeds = arcadeDrive(speed, rotation);
-	SmartDashboard::PutNumber("LeftMotorOut", speeds[0]);
-	SmartDashboard::PutNumber("RightMotorOutput", speeds[1]);
+
+	// Adjust for speed difference in reverse (-) by slowing down the (+) direction
+	// Green LED = 637 RPM Wheel
+	// Red LED = 559 RPM Wheel
+	if(speeds[0] > 0)
+		speeds[0] *= 0.875;
+	if(speeds[1] > 0)
+		speeds[1] *= 0.875;
+
 	RobotMap::left->Set(speeds[0]);
 	RobotMap::right->Set(speeds[1]);
-	RobotMap::pwmOther->Set(speeds[0]);
 }
 
 std::array<double, 2> DriveBaseSubsystem::arcadeDrive(double xSpeed, double zRotation) {

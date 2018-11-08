@@ -16,8 +16,6 @@ using namespace frc;
 class RobotMap{
 public:
 	static Spark *leftOne, *leftTwo, *rightOne, *rightTwo;
-	static Spark *pwmOther;
-	// static Talon *pwmOther;
 	static SpeedControllerGroup *left, *right;
 	static WPI_TalonSRX *leftIntake, *rightIntake;
 	static frc::Compressor *compressor;

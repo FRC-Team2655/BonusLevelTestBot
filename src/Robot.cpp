@@ -14,7 +14,7 @@ void Robot::RobotInit(){
 	RobotMap::rightIntake->Follow(*RobotMap::leftIntake);
 	RobotMap::imu->Reset();
 
-	//RobotMap::right->SetInverted(true);
+	RobotMap::right->SetInverted(true);
 
 	// Don't let LiveWindow control SRX motor controllers or Test mode will break follower mode
 	LiveWindow::GetInstance()->Remove(RobotMap::leftIntake);

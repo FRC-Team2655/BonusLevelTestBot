@@ -1,8 +1,5 @@
 #include "RobotMap.hpp"
 
-Spark *RobotMap::pwmOther = nullptr;
-// Talon *RobotMap::pwmOther = nullptr;
-
 Spark *RobotMap::leftOne = nullptr;
 Spark *RobotMap::leftTwo = nullptr;
 Spark *RobotMap::rightOne = nullptr;
@@ -18,9 +15,6 @@ DriveBaseSubsystem *RobotMap::driveBase = nullptr;
 IntakeSubsystem *RobotMap::intake = nullptr;
 
 void RobotMap::initHardware(){
-
-	pwmOther = new Spark(5);
-	// pwmOther = new Talon(5);
 
 	leftOne = new Spark(0);
 	leftTwo = new Spark(1);
